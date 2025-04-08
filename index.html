@@ -1,15 +1,93 @@
-noBtn.addEventListener("mouseo ver", () = { 
-    const newX = Math.floor(Math.random() *
-                                                    questionContainer.offsetWidth); 
-    const newY = Math.floor(Math.random() * 
-                                                  questionContainer.offsetWidth);
-     noBtn.style.left = `${newX}px'; 
-    noBtn.style.top = `${newY}px';
-     }); 
-    
-    yesBtn.addEventListener("click", () {
-     const timeoutld setTimeout(() = {
-    heartLoader.style.display = "none"; 
-    resultContainer.style.display = "inherit";
-     gifResult.play();
-     }, 3000); });
+<!DOCTYPE html>
+<html lang=\"en\">
+<head>
+    <meta charset=\"UTF-8\">
+    <title>Do You Love Me?</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: #ffeef7;
+            margin: 0;
+            overflow: hidden;
+        }
+        .container {
+            text-align: center;
+            animation: fadeIn 1s ease-in-out;
+        }
+        button {
+            padding: 12px 20px;
+            margin: 10px;
+            font-size: 16px;
+            cursor: pointer;
+            border: none;
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+            transition: transform 0.2s;
+        }
+        button:hover {
+            transform: scale(1.1);
+        }
+        #yesBtn {
+            background-color: #ff85c0;
+            color: white;
+        }
+        #noBtn {
+            background-color: #c1c1c1;
+            color: white;
+        }
+        .emoji {
+            font-size: 60px;
+            animation: bounce 1.5s infinite;
+        }
+        h1 {
+            color: #444;
+        }
+
+        @keyframes bounce {
+            0%, 20%, 50%, 80%, 100% {
+                transform: translateY(0);
+            }
+            40% {
+                transform: translateY(-20px);
+            }
+            60% {
+                transform: translateY(-10px);
+            }
+        }
+
+        @keyframes fadeIn {
+            from {opacity: 0;}
+            to {opacity: 1;}
+        }
+    </style>
+</head>
+<body>
+<div class=\"container\">
+    <div class=\"emoji\">🎬🐼💖</div>
+    <h1>Do you love me or not?</h1>
+    <button id=\"yesBtn\">Yes! 😍</button>
+    <button id=\"noBtn\">No! 😢</button>
+</div>
+<script>
+    let noCount = 0;
+
+    document.getElementById('yesBtn').onclick = function() {
+        alert('Yay! I love you too! 🎥🐼❤️');
+    };
+
+    document.getElementById('noBtn').onclick = function() {
+        noCount++;
+        if(noCount >= 3) {
+            alert('Enough! You must love me! 🎬🐼❤️');
+            document.getElementById('noBtn').style.display = 'none';
+        } else {
+            alert('Oh no! Maybe next movie night? 🍿🐼💔');
+        }
+    };
+</script>
+</body>
+</html>
